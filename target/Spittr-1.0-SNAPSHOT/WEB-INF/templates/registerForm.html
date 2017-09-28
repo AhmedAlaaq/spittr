@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Spitter registeration</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+
+    <body>
+        <h1>Register</h1>
+        <form method="POST" th:object="${spitter}">
+            <div class="errors" th:if="${#fields.hasErrors('*')}">	
+                <ul>
+                    <li th:each="err : ${#fields.errors('*')}"
+                        th:text="${err}">Input is incorrect</li>
+                </ul>
+            </div>
+            <label>Profile Picture</label>:
+            <input type="file"
+                   name="profilePicture"
+                   accept="image/jpeg,image/png,image/gif"/><br/>
+            <br>
+
+            <label th:class="${#fields.hasErrors('firstName')}? 'error'">	
+                First Name</label>:
+            <input type="text" th:field="*{firstName}"
+                   th:class="${#fields.hasErrors('firstName')}? 'error'" /><br/>
+
+            <label th:class="${#fields.hasErrors('lastName')}? 'error'">	
+                Last Name </label>:
+            <input type="text" th:field="*{lastName}"
+                   th:class="${#fields.hasErrors('lastName')}? 'error'" /><br/>
+
+            <label th:class="${#fields.hasErrors('email')}? 'error'">	
+                Email</label>:
+            <input type="text" th:field="*{email}"
+                   th:class="${#fields.hasErrors('email')}? 'error'" /><br/>
+
+            <label th:class="${#fields.hasErrors('username')}? 'error'">	
+                Username</label>:
+            <input type="text" th:field="*{username}"
+                   th:class="${#fields.hasErrors('username')}? 'error'" /><br/>
+
+            <label th:class="${#fields.hasErrors('password')}? 'error'">	
+                Password</label>:
+            <input type="password" th:field="*{password}"
+                   th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
+            <br>
+            <input type="submit" value="Register" />
+        </form>
+
+        <!--#1: Display errors
+        #2: First name
+        #3: Last name
+        #4: Email
+        #5: Username
+        #6: Password-->
+    </body>
+</html>

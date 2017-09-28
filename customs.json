@@ -1,0 +1,22 @@
+{
+    "elements": {
+        "c:out": {}
+    },
+    "attributes": {
+        "th:if": {},
+        "th:text": {
+            "context": "span"
+        },
+        "path": {},
+        "th:object": {
+            "context": "form"
+        },
+        "src": {},
+        "th:each": {
+            "context": "li"
+        },
+        "th:class": {
+            "context": "label"
+        }
+    }
+}
